@@ -7,24 +7,11 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class Employee {
-
+public class Category {
     private Long id;
-
-    private String username;
-
+    private Integer type;
     private String name;
-
-    private String password;
-
-    private String sex;
-
-    private String phone;
-
-    private String idNumber;
-
-    private Integer status;
-
+    private Integer sort;
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
@@ -33,5 +20,4 @@ public class Employee {
     private Long createUser;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUser;
-
 }

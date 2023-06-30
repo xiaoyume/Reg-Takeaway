@@ -1,6 +1,7 @@
 package com.xiaoyume.regtakeaway.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.xiaoyume.regtakeaway.common.BaseContext;
 import com.xiaoyume.regtakeaway.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.AntPathMatcher;
@@ -41,6 +42,9 @@ public class LoginCheckFilter implements Filter {
             return;
         }
         if(request.getSession().getAttribute("employee") != null){
+
+            Long empId = (Long) request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(empId);
             filterChain.doFilter(request, response);
             return;
         }
